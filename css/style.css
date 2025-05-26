@@ -1,0 +1,412 @@
+:root {
+  --primary: #FF6B6B; /* Яркий коралловый акцент */
+  --secondary: #312E81; /* Глубокий индиго для контраста */
+  --text: #FFFFFF; /* Чистый белый текст для максимальной читаемости */
+  --light-gray: #FFDAB9; /* Мягкий персиковый для фона левой колонки */
+  --medium-gray: #FF8C8C; /* Тёплый средний коралловый для акцентов */
+  --dark-gray: #4B3B6B; /* Тёмный приглушённый фиолетовый */
+  --background: #2D3748; /* Тёмный серо-сланцевый фон */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(145deg, #FF6B6B 0%, #2D3748 100%);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 30px;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.resume-container {
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--background);
+  border-radius: 12px; /* Уменьшенный радиус для компактности */
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Сильная внешняя тень для эффекта карты */
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  min-height: calc(100vh - 60px);
+}
+
+.left-column {
+  background: linear-gradient(to bottom, var(--light-gray), #FFE8D6 100%); /* Градиент для глубины */
+  padding: 30px;
+  width: 35%;
+  border-right: 2px solid rgba(255, 107, 107, 0.7); /* Тонкая светящаяся граница */
+  border-radius: 0 0 40px 0; /* Скруглённый нижний край */
+  color: #FFFFFF;
+}
+
+.left-column * {
+  color: #FFFFFF;
+}
+
+.right-column {
+  padding: 30px;
+  background: var(--background);
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"%3E%3Cpath fill="%23FF6B6B" fill-opacity="0.05" d="M1 3h1v1H1V3zm2-2h1v1H3V1z"/%3E%3C/svg%3E'); /* Микро-текстура шума */
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  transform: skewY(-2deg); /* Лёгкий наклон для динамики */
+}
+
+/* Avatar */
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--primary), #FF8C8C);
+  border: 3px solid var(--secondary);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-image: url('https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Personal Info */
+.personal-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.personal-info h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 6px;
+}
+
+.position {
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  background: var(--light-gray);
+}
+
+/* Sections */
+h2 {
+  color: var(--secondary);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding: 10px 18px;
+  background: var(--medium-gray);
+  border-left: 5px solid var(--primary);
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section.education {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Contact Items */
+.contact-item {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(8px);
+  color: var(--primary);
+}
+
+.contact-item .icon {
+  width: 20px;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+/* Skills */
+.skill-category {
+  margin-bottom: 15px;
+}
+
+.skill-category h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--secondary);
+}
+
+.skill-category ul {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.skill-category li {
+  font-size: 13px;
+  padding: 6px 10px;
+  background: var(--medium-gray);
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.skill-category li:hover {
+  background: var(--primary);
+  color: var(--background);
+  transform: scale(1.05);
+}
+
+/* Experience */
+.experience-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: var(--light-gray);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  transform: perspective(1000px) rotateY(2deg);
+}
+
+.experience-item:hover {
+  transform: perspective(1000px) rotateY(0deg) scale(1.02);
+  box-shadow: 0 0 12px rgba(255, 107, 107, 0.6);
+}
+
+.experience-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.experience-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.experience-period {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 15px;
+  background: var(--medium-gray);
+}
+
+.company-name {
+  color: var(--dark-gray);
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.experience-details {
+  list-style: none;
+  padding-left: 0;
+}
+
+.experience-details li {
+  font-size: 13px;
+  margin-bottom: 6px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.experience-details li::before {
+  content: "→";
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  font-size: 13px;
+}
+
+/* Education */
+.education-item {
+  margin-bottom: 20px;
+  padding: 12px;
+  border-left: 5px solid var(--primary);
+  border-radius: 12px;
+  flex-grow: 1;
+  min-height: 120px;
+  transition: all 0.3s ease;
+  transform: perspective(1000px) rotateY(-2deg);
+}
+
+.education-item:hover {
+  transform: perspective(1000px) rotateY(0deg) scale(1.02);
+  box-shadow: 0 0 12px rgba(255, 107, 107, 0.6);
+}
+
+.education-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.education-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.education-period {
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 15px;
+  background: var(--medium-gray);
+}
+
+/* Download Button */
+.download-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--primary);
+  color: var(--background);
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+  transition: all 0.4s ease;
+}
+
+.download-btn:hover {
+  background: #312E81;
+  transform: scale(1.1) rotate(360deg);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .resume-container {
+    margin: 10px auto;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .left-column {
+    width: 100%;
+    border-right: none;
+    border-bottom: 3px solid var(--primary);
+    padding: 20px;
+    border-radius: 0; /* Убираем скругление для мобильных */
+  }
+
+  .right-column {
+    width: 100%;
+    padding: 20px;
+    transform: none; /* Убираем наклон для мобильных */
+  }
+
+  .section.education {
+    justify-content: flex-start;
+  }
+
+  .avatar-placeholder {
+    width: 80px;
+    height: 80px;
+  }
+
+  .download-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px;
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .btn-text {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .personal-info h1 {
+    font-size: 20px;
+  }
+
+  .position {
+    font-size: 13px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  .experience-header,
+  .education-header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .experience-period,
+  .education-period {
+    margin-top: 8px;
+  }
+
+  .contact-item,
+  .skill-category li,
+  .experience-details li {
+    font-size: 12px;
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
+
+  .show-more-contacts {
+    display: block;
+    color: var(--primary);
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+  }
+}
